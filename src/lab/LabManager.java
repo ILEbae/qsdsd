@@ -16,7 +16,6 @@ public class LabManager {
         lList[index++] = new Lab(2,"cpp PBL");
         lList[index++] = new Lab(3,"웹 Lab");
         lList[index++] = new Lab(4,"Java 1st");
-        lList[index++] = new Lab(5,"객체지향 EH");
 
 
     }

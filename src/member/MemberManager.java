@@ -13,9 +13,9 @@ public class MemberManager {
     }
 
     public void ini(LabManager lm) {
-        mList[index++] = new Student(index, "홍학생", lm.findMemberByLid(5), "소프트웨어");
+        mList[index++] = new Student(index, "홍학생", lm.findMemberByLid(1), "소프트웨어");
         mList[index++] = new Student(index, "김학생", lm.findMemberByLid(2), "게임공학");
-        mList[index++] = new Student(index, "박학생", lm.findMemberByLid(5), "컴퓨터 공학");
+        mList[index++] = new Student(index, "박학생", lm.findMemberByLid(1), "컴퓨터 공학");
         mList[index++] = new Researcher(index, "홍연구", lm.findMemberByLid(1), "Happy co.");
         mList[index++] = new Researcher(index, "박연구", lm.findMemberByLid(3), "(주) 행복");
     }
@@ -114,7 +114,7 @@ public class MemberManager {
                 System.out.println("<찾은 멤버>");
                 System.out.println("------------------------------");
                 System.out.println("구분  ID  이름  Lab     전공/회사");
-
+                System.out.println(WhatIsType()+"\t"+m.GetId()+"\t"+m.GetName()+"\t"+m.lab.GetTitle()+"\t"+
             }
 
         }
