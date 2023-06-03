@@ -12,6 +12,7 @@ public class Member {
     public String GetName(){return name;}
     public int GetId(){return id;}
 
+    public Lab LabName() {return lab;}
     public void showData() {};
 
 }

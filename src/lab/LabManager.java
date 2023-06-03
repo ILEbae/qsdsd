@@ -1,6 +1,6 @@
 package lab;
 import java.util.Scanner;
-
+import member.MemberManager;
 public class LabManager {
     Lab[] lList;
     int index = 0;
@@ -46,15 +46,19 @@ public class LabManager {
         return null;
     }
 
-    public void showLabId(){
+    public void showLabId(MemberManager mm){
        int Lid;
        Lab l;
        ShowAll();
+        System.out.println("<9. Lab별 멤버 목록>");
+        ShowAll();
         System.out.print("- LabId: "); Lid = sc.nextInt();
-       l=findMemberByLid(Lid);
+        l=findMemberByLid(Lid);
         System.out.println("<"+l.GetTitle()+": 멤버 목록");
         System.out.println("-------------------------------");
         System.out.println("구분  ID 이름  Lab  전공/회사");
+        mm.WhatIsType();
+}
 
-    }
+
 }

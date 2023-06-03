@@ -1,6 +1,8 @@
 package member;
 import lab.Lab;
 import lab.LabManager;
+
+import javax.swing.*;
 import java.util.Scanner;
 public class MemberManager {
     Member[] mList;
@@ -73,7 +75,7 @@ public class MemberManager {
         mList[index++] = new Researcher(id, name, null, major);
         System.out.println("=>" + name + "연구원을 추가했습니다.");
     }
-        public void ShowAll(){
+        public void WhatisA(){
             for (int i = 0; i < index; i++) {
                 if (mList[i] instanceof Student)
                     System.out.println("<2. 학생 멤버 목록 출력>");
@@ -83,11 +85,15 @@ public class MemberManager {
             }
         }
     public void WhatIsType(){
+        System.out.println("------------------------------");
+        System.out.println("구분  ID  이름  Lab     전공/회사");
+        System.out.println("------------------------------");
         for (int i = 0; i < index; i++) {
             if (mList[i] instanceof Student)
-                System.out.println("학생");
+                System.out.print("학생");
             else
-                System.out.println("연구원");
+                System.out.print("연구원");
+            mList[i].showData();
 
         }
     }
@@ -114,8 +120,20 @@ public class MemberManager {
                 System.out.println("<찾은 멤버>");
                 System.out.println("------------------------------");
                 System.out.println("구분  ID  이름  Lab     전공/회사");
-                System.out.println(WhatIsType()+"\t"+m.GetId()+"\t"+m.GetName()+"\t"+m.lab.GetTitle()+"\t"+
+                System.out.println("------------------------------");
+                if (m instanceof Student)
+                    System.out.print("학생 ");
+                if (m instanceof Researcher)
+                    System.out.print("연구원 ");
+                m.showData();
             }
 
         }
+
+        public void ShowMember(){
+            System.out.println("<6. 모든 멤버 목록 출력>");
+            WhatIsType();
+        }
+
+
 }
