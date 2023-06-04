@@ -1,7 +1,7 @@
 package lab;
 
 public class Lab {
-    int id;
+    public int id;
     String title;
 
     public Lab(int id , String title){

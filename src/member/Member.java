@@ -13,6 +13,8 @@ public class Member {
     public int GetId(){return id;}
 
     public Lab LabName() {return lab;}
-    public void showData() {};
+    public void showData() {
+
+    };
 
 }

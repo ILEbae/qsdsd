@@ -59,7 +59,7 @@ public class LabManager {
         System.out.print("- LabId: "); Lid = sc.nextInt();
         l = findMemberByLid(Lid);
         System.out.println("<"+l.GetTitle()+": 멤버 목록>");
-
+        mm.ShowAllByLid(l);
 
 }
  public void ShowMemberList(){

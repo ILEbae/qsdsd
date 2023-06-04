@@ -121,11 +121,25 @@ public class MemberManager {
 
             return null;
     }
+        public void ShowAllByLid(Lab l) {
+            System.out.println("------------------------------");
+            System.out.println("구분  ID  이름  Lab     전공/회사");
+            System.out.println("------------------------------");
+            for (int i = 0; i < index; i++) {
 
-        public Lab FindMemberByLid(){
-
-            return null;
+                if (mList[i].lab.GetTitle().equals(l.GetTitle())) {
+                    if (mList[i] instanceof Student)
+                        System.out.print("학생   ");
+                    else
+                    {
+                        System.out.print("연구원   ");
+                    }
+                    mList[i].showData();
+                }
+            }
+            System.out.println("-----------------------------");
         }
+
 
         public void MemberView(){
             Member m;
