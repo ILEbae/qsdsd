@@ -32,12 +32,12 @@ public class MemberManager {
         System.out.println("-id:" + id);
         System.out.print("-이름: ");
         name = sc.next();
-        System.out.println("-전공: ");
+        System.out.print("-전공: ");
         major = sc.next();
         lm.ShowAll();
         while (Lid != 0) {
-            System.out.println("-Lab ID :");
-            Lid = sc.nextInt();
+            System.out.print("-Lab ID :");
+            Lid = sc.nextInt(); // 이후부터 출력이 안됨 왜지?
             l = lm.findMemberByLid(Lid);
             if (l != null) {
                 mList[index++] = new Student(id, name, l, major);
@@ -59,11 +59,11 @@ public class MemberManager {
         System.out.println("-id:" + id);
         System.out.print("-이름: ");
         name = sc.next();
-        System.out.println("-전공: ");
+        System.out.print("-전공: ");
         major = sc.next();
         lm.ShowAll();
         while (Lid != 0) {
-            System.out.println("-Lab ID :");
+            System.out.print("-Lab ID :");
             Lid = sc.nextInt();
             l = lm.findMemberByLid(Lid);
             if (l != null) {
@@ -75,28 +75,43 @@ public class MemberManager {
         mList[index++] = new Researcher(id, name, null, major);
         System.out.println("=>" + name + "연구원을 추가했습니다.");
     }
-        public void WhatisA(){
+        public void PrintStudentList(){
+
+            System.out.println("<2. 학생 멤버 목록 출력>");
+            System.out.println("ID   이름    Lab    전공");
+            System.out.println("------------------------------");
             for (int i = 0; i < index; i++) {
-                if (mList[i] instanceof Student)
-                    System.out.println("<2. 학생 멤버 목록 출력>");
-                else
-                    System.out.println("<4.연구원 멤버 목록 출력>");
+                if (mList[i] instanceof Student){
                 mList[i].showData();
+                }
             }
+            System.out.println("------------------------------");
         }
+    public void PrintResearcherList(){
+        System.out.println("<4. 연구원 멤버 목록 출력>");
+        System.out.println("ID  이름   Lab    회사");
+        System.out.println("------------------------------");
+        for (int i = 0; i < index; i++) {
+            if (mList[i] instanceof Researcher)
+                mList[i].showData();
+        }
+        System.out.println("------------------------------");
+    }
     public void WhatIsType(){
         System.out.println("------------------------------");
         System.out.println("구분  ID  이름  Lab     전공/회사");
         System.out.println("------------------------------");
         for (int i = 0; i < index; i++) {
             if (mList[i] instanceof Student)
-                System.out.print("학생");
+                System.out.print("학생   ");
             else
-                System.out.print("연구원");
+                System.out.print("연구원  ");
             mList[i].showData();
 
         }
+        System.out.println("-----------------------------");
     }
+
 
         public Member FindMemberByName(String name){
             for(int i=0; i<index; i++)
@@ -106,6 +121,11 @@ public class MemberManager {
 
             return null;
     }
+
+        public Lab FindMemberByLid(){
+
+            return null;
+        }
 
         public void MemberView(){
             Member m;
@@ -126,6 +146,7 @@ public class MemberManager {
                 if (m instanceof Researcher)
                     System.out.print("연구원 ");
                 m.showData();
+                System.out.println("-------------------------------");
             }
 
         }

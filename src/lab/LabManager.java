@@ -1,10 +1,13 @@
 package lab;
 import java.util.Scanner;
 import member.MemberManager;
+import member.Student;
+
 public class LabManager {
     Lab[] lList;
     int index = 0;
     Scanner sc;
+
 
     public LabManager(int n){
         lList = new Lab[n];
@@ -49,16 +52,19 @@ public class LabManager {
     public void showLabId(MemberManager mm){
        int Lid;
        Lab l;
-       ShowAll();
+
         System.out.println("<9. Lab별 멤버 목록>");
         ShowAll();
-        System.out.print("- LabId: "); Lid = sc.nextInt();
-        l=findMemberByLid(Lid);
-        System.out.println("<"+l.GetTitle()+": 멤버 목록");
-        System.out.println("-------------------------------");
-        System.out.println("구분  ID 이름  Lab  전공/회사");
-        mm.WhatIsType();
-}
 
+        System.out.print("- LabId: "); Lid = sc.nextInt();
+        l = findMemberByLid(Lid);
+        System.out.println("<"+l.GetTitle()+": 멤버 목록>");
+
+
+}
+ public void ShowMemberList(){
+     System.out.println("<8. 모든 Lab 목록>");
+     ShowAll();
+ }
 
 }
